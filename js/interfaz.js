@@ -10,6 +10,6 @@ class Interface {
   }
 
   printCategories(){
-    
+    const categoriesList = eventbrite.obtainCategories();
   }
 }
