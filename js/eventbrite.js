@@ -4,6 +4,17 @@ class EventBrite {
     this.order = 'date';
   }
 
+  async obtainEvents(eventInfo, category) {
+    const resEvent = await fetch(`https://www.eventbriteapi.com/v3/events/search/?q=${eventInfo}&sort_by=${this.order}&categories=${category}&token=${this.token_OAuth}`);
+
+    const eventList = await resEvent.json();
+    return {
+      eventList
+    }
+
+  }
+
+
   async obtainCategories() {
     const responseCategories = await fetch(`https://www.eventbriteapi.com/v3/categories/?token=${this.token_OAuth}`);
 

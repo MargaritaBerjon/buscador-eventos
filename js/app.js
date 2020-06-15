@@ -12,7 +12,11 @@ function search(ev) {
 
 
   if (userSearch !== '') {
-    console.log('buscando');
+    eventbrite.obtainEvents(userSearch, categorySelected)
+      .then(data => {
+        console.log(data);
+
+      })
 
   } else {
     ui.showMessage('Introduce un nombre o ciudad en el buscador', 'alert alert-danger mt-4')
