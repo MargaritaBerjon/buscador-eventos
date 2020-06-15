@@ -25,4 +25,24 @@ class Interface {
 
       })
   }
+  showMessage(message, CSSclass) {
+    const div = document.createElement('div');
+    div.classList = (CSSclass);
+
+    div.appendChild(document.createTextNode(message));
+
+    const searchDiv = document.querySelector('#buscador');
+    searchDiv.appendChild(div);
+    setTimeout(() => {
+      this.removeMessage()
+    }, 3000);
+  }
+
+  removeMessage() {
+    const alert = document.querySelector('.alert');
+    if (alert) {
+      alert.remove();
+    }
+  }
+
 }
